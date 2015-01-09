@@ -3,6 +3,6 @@ function forEach(arr,fun){
 		fun(arr[i]);
 	}
 }
-forEach([1,2,3],function(element){
+forEach([1,2,4],function(element){
 	console.log(element);
 });
