@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML Starter</title>
+  </head>
+  <body>
+    Name:<input id="textinput" type="text"/>
+    
+  <script> 
+  var txtid=document.getElementById("textinput");
+  txtid.addEventListener('keyup', function(){
+  	console.log("Got key up");
+  });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+
+<html ng-app="nameApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script>
+    var nameApp=angular.module("nameApp", []);
+    nameApp.controller('nameCtrl',function nameCtrl($scope){
+      $scope.user={};
+      
+    });
+    </script>
+  </head>
+  <body ng-controller="nameCtrl">
+  Name:<input type="text" ng-model="user.firstname"><br/>
+  Address:<input type="textarea" ng-model="user.address"><br/>
+  Gender:<input type="radio" name="gender" ng-model="user.gender" value="male">Male
+          <input type="radio" name="gender" ng-model="user.gender" value="female">Female<br/>
+  Hobbies:<input type="checkbox" ng-model="user.hobby1" name="status" ng-true-value="'reading'">Reading
+  <input type="checkbox" ng-model="user.hobby2" name="status" value="Dancing" ng-true-value="'Dancing'">Dancing<br/>
+  <input type="checkbox" ng-model="user.hobby3" name="status" value="Gardening" ng-true-value="'Gardening'">Gardening<br/>
+  Nationality:<select ng-model="user.nationality">
+              <option value="Indian">Indian</option>
+              <option value="USA">American</option>
+              <option value="Japan">Japanese</option>
+              </select><br/>
+  {{user}}
+  </body>
+  </html>
