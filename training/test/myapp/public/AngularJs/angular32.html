@@ -1,0 +1,34 @@
+<html ng-app="countryApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script>
+      var countryApp = angular.module('countryApp', []);
+      countryApp.controller('CountryCtrl', function ($scope, $http){
+        $http.get('../data/countryGdp.json').success(function(data) {
+          $scope.countries = data;
+        });
+
+        $scope.sortField = 'population';
+        $scope.reverse = true;
+      });
+    </script>
+  </head>
+  <body ng-controller="CountryCtrl">
+    Search:<input ng-model="query" type="text"/>
+    <table>
+      <tr>
+        <th><a href="" ng-click="sortField ='name'; reverse = !reverse">Country</a></th>
+        <th><a href="" ng-click="sortField = 'population'; reverse = !reverse">Population</a></th>
+      </tr>
+      <tr ng-repeat="country in countries | filter:query | orderBy:sortField:reverse">
+        <td>{{country.name}}</td>
+        <td>{{country.population | number}}</td>
+        <td><img ng-src="{{country.flagURL}}" width="100"/></td>
+        <td>{{country.capital}}</td>
+        <td>{{country.gdp | currency}}</td>
+      </tr>
+    </table>
+  </body>
+</html>
