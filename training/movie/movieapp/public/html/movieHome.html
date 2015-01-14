@@ -1,0 +1,92 @@
+<html ng-app="movieApp">
+<head>
+<meta charset="utf-8">
+<title>Movie World</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-route.min.js"></script>
+<link  rel="stylesheet" type="text/css" href="../stylesheets/css.css">
+<script>
+      var movieApp = angular.module('movieApp', ['ngRoute']);
+
+      movieApp.config(function($routeProvider) {
+        $routeProvider.
+          when('/', {
+            templateUrl: 'movie-list1.html',
+            controller: 'MovieListCtrl'
+          }).
+          when('/:movieId', {
+            templateUrl: 'movie-details.html',
+            controller: 'MovieDetailCtrl'
+          }).
+          otherwise({
+            redirectTo: '/'
+          });
+      });
+
+      movieApp.factory('movies', function($http){
+        return {
+          list: function (callback){
+            $http({
+              method: 'GET',
+              url: '../data/movieNames.json',
+              cache: true
+            }).success(callback);
+          },
+          find: function(id, callback){
+            $http({
+              method: 'GET',
+              url: '../data/movie_' + id + '.json',
+              cache: true
+            }).success(callback);
+          }
+        };
+      });
+      movieApp.directive('movie', function(){
+        return {
+          scope: {
+            movie: '='
+          },
+          restrict: 'A',
+          templateUrl: 'poster.html',
+          controller: function($scope, movies){
+            movies.find($scope.movie.id, function(movie) {
+              $scope.Poster = movie.Poster;
+            });
+          }
+        };
+      });
+
+
+      movieApp.controller('MovieListCtrl', function ($scope, movies){
+        movies.list(function(movies) {
+          $scope.movies = movies;
+        });
+      });
+
+      movieApp.controller('MovieDetailCtrl', function ($scope, $routeParams, movies){
+        movies.find($routeParams.movieId, function(movie) {
+          $scope.movie = movie;
+        });
+      });
+      
+    </script>
+</head>
+<body>
+<h1>Welcome to Movie World</h1><br/><br/>
+<center><p>Movies</p></center><br/>
+<div style="position: relative;
+  margin-top:-20px;
+  margin-left:400px;
+  padding: 20px 20px 20px;
+  width: 500px;
+  background: white;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);" ng-view>
+
+
+
+</form>
+</div>
+</body>
+</html>

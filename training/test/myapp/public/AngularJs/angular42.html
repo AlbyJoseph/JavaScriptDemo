@@ -1,0 +1,69 @@
+<html ng-app="countryApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-route.min.js"></script>
+    <script>
+      var countryApp = angular.module('countryApp', ['ngRoute']);
+
+      countryApp.config(function($routeProvider) {
+        $routeProvider.
+          when('/', {
+            templateUrl: 'country-link.html',
+            controller: 'CountryListCtrl'
+          }).
+          when('/:countryName', {
+            templateUrl: 'country-link-list.html',
+            controller: 'CountryDetailCtrl'
+          }).
+          otherwise({
+            redirectTo: '/'
+          });
+      });
+
+      countryApp.factory('countries', function($http){
+        var cachedData;
+        function getData(callback){
+          if(cachedData){
+              callback(cachedData);
+          }
+          else{
+              $http.get('../data/countryGdp.json').success(function(data){
+               cachedData=data;
+               callback(data);
+              });
+              }
+       }
+
+        return{
+              
+              list: getData,
+              find: function(name,callback){
+              getData(function(data){
+                 var country = data.filter(function(entry){
+                 return entry.name === name;
+              })[0];
+                callback(country);
+            });
+        }
+      };
+      });
+
+      countryApp.controller('CountryListCtrl', function ($scope, countries){
+        countries.list(function(countries){
+          $scope.countries=countries;
+        });
+      });
+
+      countryApp.controller('CountryDetailCtrl', function ($scope, $routeParams, countries){
+        countries.find($routeParams.countryName, function(country){
+          $scope.country=country;
+        });    
+     });
+    </script>
+  </head>
+  <body>
+    <div ng-view></div>
+  </body>
+</html>
