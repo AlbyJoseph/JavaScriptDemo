@@ -1,0 +1,45 @@
+<div class="col-md-12" ng-controller="ViewcartCtrl">
+<div id='cssmenu'>
+<ul>
+<li class='last'><a href="#/homeCtr"><span>Home</span></a></li>
+<li class='active has-sub'><a href="#/menu"><span>Menu<span></a></li>
+<li class='last'><a href="#/signUp"><span>Register<span></a></li>
+<li class='last'><a href="{{loglink}}"><span>{{logstatus}}<span></a></li>
+</ul>
+<div style="margin-left:1140px;margin-top:-45px;">
+<input type="image" src="cart2.jpg" width="70px" height="50px" ng-click="viewCart()"/>
+<label style="color:red">({{cartNo}})</label>
+</div>
+</div>
+<center><h1>PizzaOn</h1></center>
+<div style="margin-left:600px; color:orange"><h4><I>Always Hot & Fresh</I></h4></div><br/>
+<div id='hdiv'></div><br/>
+<center><h2>Cart Details</h2></center><br/><br/>
+<div class="cart" ng-repeat="item in cartData">
+<div style="position: relative;
+  margin-top:-20px;
+  margin-left:170px;
+  padding: 20px 20px 20px;
+  width: 650px;
+  background: #ADEBFF;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);">
+  <img src={{item.image}} width="220px" height="120px">
+  <p>{{item.itemname}}</p>
+  <p>Size: {{item.size}}</p>
+  <p>Ingredients:{{item.Ingredients}}</p>
+  <p>Price: <img src="rs.png" width="20px" height="12px">{{item.price}}</p>
+  <p>Quantity: <input type="text" placeholder="Quantity" name="quantity" ng-model="item.quantity" required="" /></p>
+  <br/><br/>
+  <center>
+  <p>Total Amount:<label>{{item.quantity*item.price}}</label></p>
+  </center>
+</div><br/><br/>
+</div>
+<center>
+<input type="image" src="cn2.png" name="submit"   width="100px" height="50px" ng-click="submit(item)"/>
+</center>
+<br/>
+<div id='cssmenu'><center><br/>Designed By: Alby Joseph</center></div>
+</div>

@@ -1,0 +1,55 @@
+<div class="col-md-12" ng-controller="CartdisplayCtrl">
+<div id='cssmenu'>
+<ul>
+<li class='last'><a href="#/homeCtr"><span>Home</span></a></li>
+<li class='active has-sub'><a href="#/menu"><span>Menu<span></a></li>
+<li class='last'><a href="#/signUp"><span>Register<span></a></li>
+<li class='last'><a href="{{loglink}}"><span>{{logstatus}}<span></a></li>
+</ul>
+<div style="margin-left:1140px;margin-top:-45px;">
+<input type="image" src="cart2.jpg" width="70px" height="50px" ng-click="viewCart()"/>
+<label style="color:red">({{cartNo}})</label>
+</div>
+</div>
+<center><h1>PizzaOn</h1></center>
+<div style="margin-left:600px; color:orange"><h4><I>Always Hot & Fresh</I></h4></div><br/>
+<div id='hdiv'></div><br/>
+<div style="position: relative;
+  margin-top:4px;
+  margin-left:120px;
+  padding: 20px 20px 20px;
+  width: 650px;
+  background: #ADEBFF;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);">
+  <center><h3>Delivery Details</h3></center><br/><br/>
+  <p style="color:blue"><strong>User Details :</strong></p>
+  <p>{{logData.firstname}}&nbsp;{{logData.lastname}}</p>
+  <p>Delivery Address: </p>
+  <div style="margin-left:30px">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{logData.address}}<br/>
+  </div>
+  <p>Contact No:{{logData.mobile}} 
+  <br/><br/>
+  <p style="color:blue"><strong>Order Details :</strong></p>
+  <div class="cart" ng-repeat="item in cartData">
+   <img src={{item.image}} width="220px" height="120px">
+  <p><strong>{{item.itemname}}</strong></p>
+  <p>Size: {{item.size}}</p>
+  <p>Ingredients:{{item.Ingredients}}</p>
+  <p>Price: <img src="rs.png" width="20px" height="12px">{{item.price}}</p>
+  <p>Quantity:{{item.quantity}}</p>
+  <br/><br/>
+  <center>
+  </center>
+ </div>
+  <center>
+  <p><label>Total Amount:<img src="rs.png" width="20px" height="12px">{{cartData.total}}</label><br/><br/>
+
+   <input type="image" src="check1.jpg" name="submit"   width="100px" height="50px" ng-click="submit()"/>
+   </center>
+  </div>
+<br/>
+<div id='cssmenu'><center><br/>Designed By: Alby Joseph</center></div>
+</div>

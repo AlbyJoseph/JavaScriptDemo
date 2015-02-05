@@ -1,0 +1,103 @@
+<div class="col-md-12" ng-controller="DeliverydetailsCtrl">
+<div id='cssmenu'>
+<ul>
+<li class='last'><a href="#/homeCtr"><span>Home</span></a></li>
+<li class='active has-subt'><a href="#/menu"><span>Menu<span></a></li>
+<li class='last'><a href="#/signUp"><span>Register<span></a></li>
+<li class='last'><a href="{{loglink}}"><span>{{logstatus}}<span></a></li>
+</ul>
+</div>
+<center><h1>PizzaOn</h1></center>
+<div style="margin-left:600px; color:orange"><h4><I>Always Hot & Fresh</I></h4></div><br/>
+<div id='hdiv'></div><br/><br/>
+<center>
+<div style="position: relative;
+  margin-top:-20px;
+  margin-left:120px;
+  padding: 20px 20px 20px;
+  width: 450px;
+  background: #ADEBFF;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);">
+  <h3>Delivery Address</h3>
+  <form name="addressForm" ng-submit="submit(c)">
+  <table>
+  <tr><td><label>Name </label></td>
+<td><input type="text" 
+placeholder="Name" 
+name="name" 
+ng-model="c.name" 
+required="" /></td>
+<td ng-show="form.$submitted || form.name.$touched || form.c.$invalid"></td>
+<td style="color:red" ng-show="form.c.$error.required && form.c.$dirty ">*Required</td>
+</tr>
+<tr><td><label>Mobile Number :</label></td>
+<td><input type="number" 
+       placeholder="Mobile number" 
+       name="mobile" 
+       ng-model="c.mobile"
+       ng-minlength=10 
+       required="" /></td>
+       <td ng-show="form.$submitted || form.mobile.$touched"></td>
+<td style="color:red" ng-show="form.pincode.$error.required && form.mobile.$dirty">*</td>
+<td style="color:red" ng-show="form.mobile.$error.minlength">Minimum 10 characters required</td></tr>
+<tr><td><label>Address Line1</label></td>
+<td><input type="text" 
+       placeholder="Address Line1" 
+       name="address" 
+       ng-model="c.address1"
+       required="" /></td>
+       <td ng-show="form.$submitted || form.address1.$touched"></td>
+<td style="color:red" ng-show="form.address1.$error.required && form.address1.$dirty">*</td>
+</tr>
+
+<tr><td><label>Address Line2</label></td>
+<td><input type="text" 
+       placeholder="Address Line2" 
+       name="address2" 
+       ng-model="c.address2"
+       required="" /></td>
+       <td ng-show="form.$submitted || form.address2.$touched"></td>
+<td style="color:red" ng-show="form.address2.$error.required && form.address2.$dirty">*</td>
+</tr>
+<tr><td><label>City</label></td>
+<td><input type="text" 
+       placeholder="City" 
+       name="city" 
+       ng-model="c.city"
+       required="" /></td>
+       <td ng-show="form.$submitted || form.city.$touched"></td>
+<td style="color:red" ng-show="form.city.$error.required && form.city.$dirty">*</td>
+</tr>
+<tr><td><label>State</label></td> 
+<td><input type="text" 
+       placeholder="State" 
+       name="state" 
+       ng-model="c.state"
+       required="" /></td>
+       <td ng-show="form.$submitted || form.city.$touched"></td>
+<td style="color:red" ng-show="form.city.$error.required && form.city.$dirty">*</td>
+</tr>
+<tr><td><label>PinCode</label></td>
+<td><input type="number" 
+       placeholder="PinCode" 
+       name="pincode" 
+       ng-model="c.pincode"
+       ng-minlength=6 
+       ng-maxlength=6
+       required="" /></td>
+        <td ng-show="form.$submitted || form.pincode.$touched"></td>
+<td style="color:red" ng-show="form.pincode.$error.required && form.pincode.$dirty">*</td>
+<td style="color:red" ng-show="form.pincode.$error.minlength">Minimum 6 characters required</td>
+<td style="color:red" ng-show="form.pincode.$error.maxlength">Maximaum characters allowed is 20</td>
+</tr>
+</table>
+<br/><br/>
+<input type="image" src="proceed1.jpg" name="submit"  ng-disabled="form.$invalid" width="100px" height="50px"/>
+</form>
+</div>
+</center>
+<br/>
+<div id='cssmenu'><center><br/>Designed By: Alby Joseph</center></div>
+</div>

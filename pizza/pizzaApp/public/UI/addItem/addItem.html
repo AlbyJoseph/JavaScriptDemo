@@ -1,0 +1,83 @@
+<div class="col-md-12" ng-controller="AdditemCtrl">
+<div id='cssmenu'>
+<ul>
+<li class='last'><a href="#/adminHome"><span>Admin Home</span></a></li>
+<li class='active has-sub'><a href="#/addItem"><span>Add Item</span></a></li>
+<li class='last'><a href="#/viewOrders"><span>View Orders</span></a></li>
+<li class='last'><a href="{{loglink}}"><span>{{logstatus}}</span></a></li>
+</ul>
+</div>
+<center><h1>PizzaOn</h1></center>
+<div style="margin-left:600px; color:orange"><h4><I>Always Hot & Fresh</I></h4></div><br/>
+<div id='hdiv'></div><br/><br/>
+<center>
+<div style="position: relative;
+  margin-top:-20px;
+  margin-left:90px;
+  padding: 20px 20px 20px;
+  width: 450px;
+  background: #ADEBFF;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);">
+<h3>Add Item</h3><br/>
+<form name ="additemform" ng-submit="submit(item)">
+<table cellpadding="20">
+<tr>
+<td><label>Name</label></td>
+     <td><input type="text" 
+       placeholder="Name" 
+       name="name" 
+       ng-model="item.name" 
+       required =""/></td>
+</tr>
+<tr>
+<td><label>Category</label></td>
+     <td>
+     <select class="form-control" 
+     ng-model="item.category">
+     <option>------Select------</option>
+     <option value="Veg">Veg</option>
+     <option value="Non-veg">Non-veg</option> 
+     </select></td>
+</tr>
+<tr>
+<td><label>Size</label></td>
+     <td><select class="form-control" 
+     ng-model="item.size">
+     <option>------Select------</option>
+     <option value="personal">Personal</option>
+     <option value="medium">Medium</option>
+     <option value="large">Large</option>
+     </select></td>
+</tr>
+<tr>
+<td><label>Price</label></td>
+     <td><input type="text" 
+       placeholder="Price" 
+       name="price" 
+       ng-model="item.price" 
+       required =""/></td>
+</tr>
+<td><label>Ingredients</label></td>
+     <td><input type="text" 
+       placeholder="Incredients" 
+       name="ingredients" 
+       ng-model="item.ingr" 
+       required =""/></td>
+</tr>
+<tr>
+<td><label>Upload image</label></td>
+   <td><input type="file" 
+     name="img" 
+     id="img"
+     ng-model="item.image"/><td>
+</tr>
+
+<tr><td><input type="submit"   value="Submit"></td></tr>
+</table>
+</form>
+</center>
+<br/><br/><br/><br/>
+  <div id='cssmenu'><center><br/>Designed By: Alby Joseph</center></div>
+</div>

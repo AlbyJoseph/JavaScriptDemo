@@ -1,0 +1,37 @@
+<div class="col-md-12" ng-controller="LoginCtrl">
+<div id='cssmenu'>
+<ul>
+<li class='last'><a href="#/homeCtr"><span>Home</span></a></li>
+<li class='last'><a href="#/menu"><span>Menu<span></a></li>
+<li class='last'><a href="#/signUp"><span>Register<span></a></li>
+<li class='active has-sub'><a href="#/login"><span>Login<span></a>
+</ul>
+</div>
+<center><h1>PizzaOn</h1></center>
+<div style="margin-left:600px; color:orange"><h4><I>Always Hot & Fresh</I></h4></div><br/>
+<div id='hdiv'></div><br/><br/>
+<center>
+<div style="position: relative;
+  margin-top:4px;
+  margin-left:90px;
+  padding: 20px 20px 20px;
+  width: 350px;
+  background: #ADEBFF;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);">
+<h3>Login</h3><br/>
+<form name="loginform" ng-submit="verify(email,password)">
+<input type="email" placeholder="Email" ng-model="email" name="email" required="" /><br/><br/>
+<input type="password" 
+       placeholder="Password" 
+       name="password" 
+       ng-model="password" 
+       ng-maxlength=20 required="" /><br/><br/>
+<p align="center"><input type="image" src="log4.jpg" width="100px" height="50px"/></p>
+<p style="color:red"><label>{{msg}}</label></p>
+</center>
+</form>
+<br/><br/>
+<div id='cssmenu'><center><br/>Designed By: Alby Joseph</center></div>
+</div>
