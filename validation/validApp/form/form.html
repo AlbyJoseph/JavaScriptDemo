@@ -1,0 +1,156 @@
+<div class="col-md-12" ng-controller="FormCtrl">
+<form name="form" ng-submit="submit(user)">
+<center><h1>AngularJs Validations</h1></center><br/><br/><br/>
+<table align="center">
+<tr><td><label>Username </label></td>
+<td><input type="text" 
+placeholder="Name" 
+name="uname" 
+ng-model="user.name" 
+ng-minlength=6
+ng-maxlength=20 required="" /></td>
+<td ng-show="form.$submitted || form.uname.$touched || form.user.$invalid"></td>
+<td style="color:red" ng-show="form.uname.$error.required && form.user.$dirty ">*Required</td>
+<td style="color:red" ng-show="form.uname.$error.minlength">Minimum 6 characters required</td>
+<td style="color:red" ng-show="form.uname.$error.">Maximaum characters allowed is 20</td>
+       </tr>
+<tr><td><label>Password</label></td> 
+       <td><input type="password" 
+       placeholder="Password" 
+       name="password" 
+       ng-model="user.password" 
+       ng-minlength=6 
+       ng-maxlength=20 required="" /></td>
+       <td ng-show="form.$submitted || form.password.$touched"></td>
+<td style="color:red" ng-show="form.password.$error.required && form.password.$dirty">*</td>
+<td style="color:red" ng-show="form.password.$error.minlength">Minimum 6 characters required</td>
+<td style="color:red" ng-show="form.password.$error.maxlength">Maximaum characters allowed is 20</td>
+ </tr>
+<tr><td><label>Age</label></td>
+       <td><input type="number" 
+       placeholder="Age" 
+       name="age" 
+       ng-model="user.age" 
+       min=18
+       max=100
+       required="" /></td>
+        <td ng-show="form.$submitted || form.age.$touched"></td>
+<td style="color:red" ng-show="form.age.$error.required && form.age.$dirty">*</td>
+</tr>
+
+<div id="sadd">
+<tr><td><label><i>Shipping Address :<i></label></td></tr><tr></tr>
+<tr><td><label>Address Line1</label></td>
+<td><input type="text" 
+       placeholder="Address Line1" 
+       name="address" 
+       ng-model="user.address1"
+       required="" /></td>
+       <td ng-show="form.$submitted || form.address1.$touched"></td>
+<td style="color:red" ng-show="form.address1.$error.required && form.address1.$dirty">*</td>
+</tr>
+
+<tr><td><label>Address Line2</label></td>
+<td><input type="text" 
+       placeholder="Address Line2" 
+       name="address2" 
+       ng-model="user.address2"
+       required="" /></td>
+       <td ng-show="form.$submitted || form.address2.$touched"></td>
+<td style="color:red" ng-show="form.address2.$error.required && form.address2.$dirty">*</td>
+</tr>
+<tr><td><label>City</label></td>
+<td><input type="text" 
+       placeholder="City" 
+       name="city" 
+       ng-model="user.city"
+       required="" /></td>
+       <td ng-show="form.$submitted || form.city.$touched"></td>
+<td style="color:red" ng-show="form.city.$error.required && form.city.$dirty">*</td>
+</tr>
+<tr><td><label>State</label></td> 
+<td><input type="text" 
+       placeholder="State" 
+       name="state" 
+       ng-model="user.state"
+       required="" /></td>
+       <td ng-show="form.$submitted || form.city.$touched"></td>
+<td style="color:red" ng-show="form.city.$error.required && form.city.$dirty">*</td>
+</tr>
+<tr><td><label>PinCode</label></td>
+<td><input type="number" 
+       placeholder="PinCode" 
+       name="pincode" 
+       ng-model="user.pincode"
+       ng-minlength=6 
+       ng-maxlength=6
+       required="" /></td>
+        <td ng-show="form.$submitted || form.pincode.$touched"></td>
+<td style="color:red" ng-show="form.pincode.$error.required && form.pincode.$dirty">*</td>
+<td style="color:red" ng-show="form.pincode.$error.minlength">Minimum 6 characters required</td>
+<td style="color:red" ng-show="form.pincode.$error.maxlength">Maximaum characters allowed is 20</td>
+</tr>
+</table>
+<br/>
+<center>Billing Address same as Shipping Address 
+<input type="checkbox" ng-click="checkAddress(user)" ng-model="user.check"/><br/><br/>
+<div ng-hide="user.check">
+<table>
+<tr><td><label><i>Shipping Address :<i></label></td></tr><tr></tr>
+<tr><td><label>Address Line1</label></td>
+<td><input type="text" 
+       placeholder="Address Line1" 
+       name="baddress" 
+       ng-model="user.baddress1"
+       required="" /></td>
+       <td ng-show="form.$submitted || form.address1.$touched"></td>
+<td style="color:red" ng-show="form.address1.$error.required && form.address1.$dirty">*</td>
+</tr>
+
+<tr><td><label>Address Line2</label></td>
+<td><input type="text" 
+       placeholder="Address Line2" 
+       name="baddress2" 
+       ng-model="user.baddress2"
+       required="" /></td>
+       <td ng-show="form.$submitted || form.address2.$touched"></td>
+<td style="color:red" ng-show="form.address2.$error.required && form.address2.$dirty">*</td>
+</tr>
+<tr><td><label>City</label></td>
+<td><input type="text" 
+       placeholder="City" 
+       name="bcity" 
+       ng-model="user.bcity"
+       required="" /></td>
+       <td ng-show="form.$submitted || form.city.$touched"></td>
+<td style="color:red" ng-show="form.city.$error.required && form.city.$dirty">*</td>
+</tr>
+<tr><td><label>State</label></td> 
+<td><input type="text" 
+       placeholder="State" 
+       name="bstate" 
+       ng-model="user.bstate"
+       required="" /></td>
+       <td ng-show="form.$submitted || form.city.$touched"></td>
+<td style="color:red" ng-show="form.city.$error.required && form.city.$dirty">*</td>
+</tr>
+<tr><td><label>PinCode</label></td>
+<td><input type="number" 
+       placeholder="PinCode" 
+       name="bpincode" 
+       ng-model="user.bpincode"
+       ng-minlength=6 
+       ng-maxlength=6
+       required="" /></td>
+        <td ng-show="form.$submitted || form.pincode.$touched"></td>
+<td style="color:red" ng-show="form.pincode.$error.required && form.pincode.$dirty">*</td>
+<td style="color:red" ng-show="form.pincode.$error.minlength">Minimum 6 characters required</td>
+<td style="color:red" ng-show="form.pincode.$error.maxlength">Maximaum characters allowed is 20</td>
+</tr>
+</table>
+</div>
+<br/><br/>
+<input type="submit" value="Submit" name="submit"  ng-disabled="form.$invalid"/>
+ </center>
+</form>
+</div>

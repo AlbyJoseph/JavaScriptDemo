@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>h1 Bootstrap heading <small>(36px)</small></h1>
+      <h2>h2 Bootstrap heading <small>(30px)</small></h2>
+      <h3>h3 Bootstrap heading <small>(24px)</small></h3>
+      <h4>h4 Bootstrap heading <small>(18px)</small></h4>
+      <h5>h5 Bootstrap heading <small>(14px)</small></h5>
+      <h6>h6 Bootstrap heading <small>(12px)</small></h6>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </body>
+
+</html>
